@@ -8,21 +8,21 @@ J'ai créé ce projet pour travailler mes compétences. Ce projet prend la forme
 
 ### Objectifs
 
-**Symfony 7** : Adepte de ce framework, j'ai appliqué une organisation visant à mettre en œuvre les principes SOLID et à faciliter la maintenabilité ainsi que l'évolutivité du projet.
+**🎼 Symfony 7** : Adepte de ce framework, j'ai appliqué une organisation visant à mettre en œuvre les principes SOLID et à faciliter la maintenabilité ainsi que l'évolutivité du projet.
 
-**Docker** : Adepte de Docker, j'ai choisi d'intégrer différentes images pour créer un environnement de développement prévisible et autonome.
+**🐳 Docker** : Adepte de Docker, j'ai choisi d'intégrer différentes images pour créer un environnement de développement prévisible et autonome.
 
-**Symfony Turbo et Twig** : Utilisation de Turbo Drive ainsi que de Turbo Stream couplé à Mercure pour une interface en temps réel. J'ai choisi l'approche Atomic Design pour l'architecture des interfaces.
+**✨ Symfony Turbo et Twig** : Utilisation de Turbo Drive ainsi que de Turbo Stream couplé à Mercure pour une interface en temps réel. J'ai choisi l'approche Atomic Design pour l'architecture des interfaces.
 
-**Caddy** : Adepte d'Apache et ayant déjà utilisé Nginx, j'ai souhaité essayer ce serveur web, qui gagne en popularité et offre des facilités avec Mercure.
+**🛒 Caddy** : Adepte d'Apache et ayant déjà utilisé Nginx, j'ai souhaité essayer ce serveur web, qui gagne en popularité et offre des facilités avec Mercure.
 
-**Dunglas\Mercure** : J'étais curieux de créer une application en temps réel afin de comprendre les tenants et aboutissants d'un tel système. Mercure et son système de SSE sont une superbe découverte que je souhaiterais remettre en pratique.
+**📡 Dunglas\Mercure** : J'étais curieux de créer une application en temps réel afin de comprendre les tenants et aboutissants d'un tel système. Mercure et son système de SSE sont une superbe découverte que je souhaiterais remettre en pratique.
 
-**Robustesse** : Soucieux de la robustesse de mon code, j'ai créé des plans de tests unitaires et E2E. J'ai ponctuellement adopté une approche TDD.
+**🛡️ Robustesse** : Soucieux de la robustesse de mon code, j'ai créé des plans de tests unitaires et E2E. J'ai ponctuellement adopté une approche TDD.
 
-**Qualité** : Soucieux de la qualité de mon code, je vérifie ce dernier à chaque commit à l'aide de GrumPHP, PHPCS et PHPStan.
+**🤌 Qualité** : Soucieux de la qualité de mon code, je vérifie ce dernier à chaque commit à l'aide de GrumPHP, PHPCS et PHPStan.
 
-**Automatisation** : Adepte de l'automatisation et de l'optimisation, j'ai créé différents scripts shell pour faciliter l'exécution des plans de tests et la gestion des bases de données.
+**🤖 Automatisation** : Adepte de l'automatisation et de l'optimisation, j'ai créé différents scripts shell pour faciliter l'exécution des plans de tests et la gestion des bases de données.
 
 ## Installer l'environnement
 
