@@ -18,6 +18,8 @@ J'ai créé ce projet pour travailler mes compétences. Ce projet prend la forme
 
 **📡 Dunglas\Mercure** : J'étais curieux de créer une application en temps réel afin de comprendre les tenants et aboutissants d'un tel système. Mercure et son système de SSE sont une superbe découverte que je souhaiterais remettre en pratique.
 
+**🏗️ Design patern** : J'ai utilisé deux patrons de conception pour la publication des mises à jour d'interfaces en temps réel suite à des actions définies : le patron Strategy, pour appliquer la stratégie de publication appropriée tout en découplant les actions des mises à jour, et le patron Factory, pour instancier dynamiquement la stratégie adaptée.
+
 **🛡️ Robustesse** : Soucieux de la robustesse de mon code, j'ai créé des plans de tests unitaires et E2E. J'ai ponctuellement adopté une approche TDD.
 
 **🤌 Qualité** : Soucieux de la qualité de mon code, je vérifie ce dernier à chaque commit à l'aide de GrumPHP, PHPCS et PHPStan.
