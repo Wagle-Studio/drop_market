@@ -1,8 +1,0 @@
-stages:
-  - test
-  - push_into_staging
-  - deploy_staging
-
-include:
-  - local: 'deploy/pipeline_test.yml'
-  - local: 'deploy/pipeline_staging.yml'

@@ -2,6 +2,28 @@
 
 🐘 PHP 8.2 . 🎼 Symfony 7.1 . 🗃️ Mysql 8.0 . 🛒 Caddy (latest) . 📡 Dunglas\Mercure . 🔎 PhpMyAdmin . 📫 MailDev
 
+## Présentation
+
+J'ai créé ce projet pour travailler mes compétences. Ce projet prend la forme d'un e-commerce des plus simples. L'objectif n'étant pas d'aboutir à un produit fini, chaque fonctionnalité implantée est complète, mais certaines fonctionnalités incontournables d'un e-commerce sont consciemment absentes.
+
+### Objectifs
+
+**Symfony 7** : Adepte de ce framework, j'ai appliqué une organisation visant à mettre en œuvre les principes SOLID et à faciliter la maintenabilité ainsi que l'évolutivité du projet.
+
+**Docker** : Adepte de Docker, j'ai choisi d'intégrer différentes images pour créer un environnement de développement prévisible et autonome.
+
+**Symfony Turbo et Twig** : Utilisation de Turbo Drive ainsi que de Turbo Stream couplé à Mercure pour une interface en temps réel. J'ai choisi l'approche Atomic Design pour l'architecture des interfaces.
+
+**Caddy** : Adepte d'Apache et ayant déjà utilisé Nginx, j'ai souhaité essayer ce serveur web, qui gagne en popularité et offre des facilités avec Mercure.
+
+**Dunglas\Mercure** : J'étais curieux de créer une application en temps réel afin de comprendre les tenants et aboutissants d'un tel système. Mercure et son système de SSE sont une superbe découverte que je souhaiterais remettre en pratique.
+
+**Robustesse** : Soucieux de la robustesse de mon code, j'ai créé des plans de tests unitaires et E2E. J'ai ponctuellement adopté une approche TDD.
+
+**Qualité** : Soucieux de la qualité de mon code, je vérifie ce dernier à chaque commit à l'aide de GrumPHP, PHPCS et PHPStan.
+
+**Automatisation** : Adepte de l'automatisation et de l'optimisation, j'ai créé différents scripts shell pour faciliter l'exécution des plans de tests et la gestion des bases de données.
+
 ## Installer l'environnement
 
 ```bash
