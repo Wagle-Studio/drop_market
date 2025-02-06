@@ -1,0 +1,6 @@
+.header_profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space_1);
+}

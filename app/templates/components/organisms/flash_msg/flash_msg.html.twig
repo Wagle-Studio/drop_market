@@ -1,0 +1,23 @@
+{% if app.flashes is defined %}
+	{% for label, messages in app.flashes %}
+		<ul class="flash" role="alert">
+			<li class="flash__body">
+				{% for message in messages %}
+					<p class="flash__body__message">{{ message }}</p>
+				{% endfor %}
+			</li>
+		</ul>
+	{% endfor %}
+{% endif %}
+
+{% if stream_flashes is defined %}
+	{% for label, messages in stream_flashes %}
+		<ul class="flash {% if flash_msg_stream_severity is defined %}stream--{{ flash_msg_stream_severity }}{% endif %}" role="alert">
+			<li class="flash__body">
+				{% for message in messages %}
+					<p class="flash__body__message">{{ message }}</p>
+				{% endfor %}
+			</li>
+		</ul>
+	{% endfor %}
+{% endif %}

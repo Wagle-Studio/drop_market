@@ -1,0 +1,69 @@
+image: php:8.3-cli
+
+stages:
+  - deploy_staging
+
+deploy_staging:
+  image: alpine:latest
+  stage: deploy_staging
+  before_script:
+    # Install necessary dependencies.
+    - apk add --no-cache lftp openssh-client
+    # Create the .ssh folder in the user root and create a private SSH key based on the GitLab variable (file type).
+    - mkdir -p ~/.ssh
+    - cp "${REMOTE_SSH_PRIVATE_KEY}" ~/.ssh/id_rsa
+    - chmod 400 ~/.ssh/id_rsa
+    # Start the SSH agent, add the private key, and register it in the remote machine's known_hosts directory.
+    - eval $(ssh-agent -s)
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H "${REMOTE_HOST}" >> ~/.ssh/known_hosts
+  script:
+    - cd app
+    # Create a variable containing the absolute path of the current directory.
+    - WORKDIR=$(pwd)
+    - echo . $WORKDIR;
+    # SFTP transfer of project files.
+    - lftp sftp://${SFTP_STAGING_USER}:${SFTP_STAGING_PWD}@${REMOTE_HOST} -e "
+      set sftp:auto-confirm yes;
+      set net:timeout 300;
+      set net:max-retries 3;
+      cd ./www/;
+      mirror -R -v --only-newer --delete
+      --exclude .env.test
+      --exclude .gitignore
+      --exclude .gitlab-ci.yml
+      --exclude .git/
+      --exclude README.md
+      --exclude grumphp.yml
+      --exclude phpstan.dist.neon
+      --exclude phpunit.xml.dist
+      --exclude phpcs.xml.dist
+      --exclude var/
+      --exclude vendor/
+      --exclude scripts/
+      --exclude deploy/
+      --exclude tests/
+      --exclude public/bundles/
+      --exclude public/assets/
+      $WORKDIR/ ./;
+      quit
+      "
+    # SSH command to execute necessary commands to start the project.
+    - ssh ${REMOTE_USER}@${REMOTE_HOST} "bash -c \"
+      cd ${REMOTE_STAGING_PROJECT_FOLDER_PATH} &&
+      cp .env .env.local &&
+      sed -i 's#^APP_ENV=.*#APP_ENV=prod#' .env.local &&
+      sed -i 's#^DATABASE_URL=.*#DATABASE_URL=mysql://${STAGING_DB_USER}:${STAGING_DB_PWD}@localhost:3306/${STAGING_DB}#' .env.local &&
+      sed -i 's#^MAILER_DSN=.*#MAILER_DSN=smtp://${STAGING_SMTP_HOST}:${STAGING_SMTP_PORT}#' .env.local &&
+      sed -i 's#^MAILER_SENDER=.*#MAILER_SENDER=${STAGING_MAIL_SENDER}#' .env.local &&
+      composer install &&
+      composer dump-env prod &&
+      php bin/console doctrine:database:drop --force --if-exists &&
+      php bin/console doctrine:database:create --if-not-exists &&
+      php bin/console doctrine:migrations:migrate --no-interaction &&
+      php bin/console doctrine:fixtures:load -n --append --group=dev &&
+      php bin/console asset-map:compile &&
+      php bin/console cache:clear
+      \""
+  only:
+    - staging

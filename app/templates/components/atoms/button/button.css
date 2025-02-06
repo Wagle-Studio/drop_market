@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  padding: var(--space_0) var(--space_1);
+  margin: 0;
+  line-height: initial;
+  border-radius: 3px;
+  border: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button--primary {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.button--secondary {
+  background-color: var(--gray_light);
+  color: var(--black);
+}

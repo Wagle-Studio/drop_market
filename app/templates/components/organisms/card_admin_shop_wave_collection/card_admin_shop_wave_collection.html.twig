@@ -1,0 +1,15 @@
+{% embed "components/layouts/card/card.html.twig" with {
+    card_title: "Créneaux",
+} %}
+    {% block toolbar %}
+        {% if is_granted('ROLE_OWNER') %}
+            {% include "components/atoms/button_link/button_link.html.twig" with {
+                href: path("admin_shop_wave_create", { shop_slug: shop.slug }),
+                text: "Créer un créneau" 
+            } %}
+        {% endif %}
+    {% endblock %}
+    {% block body %}
+        {% include "components/molecules/table_wave/table_wave.html.twig" %}
+    {% endblock %}
+{% endembed %}

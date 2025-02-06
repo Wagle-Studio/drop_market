@@ -1,0 +1,9 @@
+{% embed "components/layouts/card/card.html.twig" with {
+    card_id: "stream_card_admin_shop_edit-shop_" ~ shop.ulid,
+    card_stream: true,
+    data_topic: "shop-" ~ shop.ulid,
+} %}
+    {% block body %}
+        {% include "components/forms/form_shop/form_shop.html.twig" %}
+    {% endblock %}
+{% endembed %}

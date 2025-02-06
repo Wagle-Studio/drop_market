@@ -1,0 +1,7 @@
+{% embed "components/layouts/wallet_header/wallet_header.html.twig" with {
+    wallet_header_title: shop.title,
+    wallet_header_id: "stream_wallet_header_admin-shop_" ~ shop.ulid
+} %}
+    {% block toolbar %}
+    {% endblock %}
+{% endembed %}

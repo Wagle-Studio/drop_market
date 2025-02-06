@@ -1,0 +1,10 @@
+:80
+
+route /.well-known/mercure* {
+	mercure {
+		transport bolt
+		publisher_jwt {$MERCURE_PUBLISHER_JWT}
+		subscriber_jwt {$MERCURE_SUBSCRIBER_JWT}
+		cors_origins {$MERCURE_CORS_ALLOWED_ORIGINS}
+	}
+}

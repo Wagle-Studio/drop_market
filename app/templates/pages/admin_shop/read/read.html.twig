@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ shop.title }}{% endblock %}
+
+{% block body %}
+	{% embed "components/layouts/wallet/wallet.html.twig" with {
+		wallet_stream: true,
+		data_topic: "shop-" ~ shop.ulid,
+	} %}
+		{% block header %}
+			{% include "components/organisms/wallet_header_admin/wallet_header_admin.html.twig" %}
+		{% endblock %}
+		{% block body %}
+			{% include "components/organisms/card_admin_shop_dashboard/card_admin_shop_dashboard.html.twig" %}
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

@@ -1,0 +1,45 @@
+.form_register {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+}
+
+.form_register__error > ul > li {
+  text-align: center;
+}
+
+.form_register__field--email {
+  grid-column: 1/12;
+  grid-row: 1/2;
+}
+
+.form_register__field--lastname {
+  grid-column: 1/12;
+  grid-row: 2/3;
+}
+
+.form_register__field--firstname {
+  grid-column: 1/12;
+  grid-row: 3/4;
+}
+
+.form_register__field--password {
+  grid-column: 1/12;
+  grid-row: 4/5;
+}
+
+.form_register__field--password-confirmation {
+  grid-column: 1/12;
+  grid-row: 6/5;
+}
+
+.form_register__field--agree-terms {
+  flex-direction: row !important;
+  grid-column: 1/12;
+  grid-row: 6/7;
+}
+
+.form_register__button {
+  width: 100%;
+  justify-content: center;
+}

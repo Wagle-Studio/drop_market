@@ -1,0 +1,34 @@
+<turbo-frame id="stream_card_profile">
+    {% embed "components/layouts/card/card.html.twig" with {
+        card_id: "stream_card_profile_read-user_" ~ app.user.ulid,
+        card_stream: true,
+        data_topic: "user-" ~ app.user.ulid,
+        card_title: "Informations personnelles",
+    } %}
+        {% block toolbar %}
+            {% include "components/atoms/button_link/button_link.html.twig" with {
+                href: path("profile_edit"),
+                text: "Éditer" 
+            } %}
+        {% endblock %}
+        {% block body %}
+            <div class="profile_read__body">
+                {% include "components/atoms/user_avatar/user_avatar.html.twig" with {
+                    user_avatar_size: "x-large",
+				    user_avatar: app.user.avatar
+                } %}
+                <div class="profile_read__body__informations">
+                    <p class="profile_read_body__informations_item">
+                        <span class="profile_read_body__informations_item--label">Identité :</span> {{ app.user.firstName }} {{ app.user.lastName }}
+                    </p>
+                    <p class="profile_read_body__informations_item">
+                        <span class="profile_read_body__informations_item--label">Adresse email :</span> {{ app.user.email }}
+                    </p>
+                    <p class="profile_read_body__informations_item">
+                        <span class="profile_read_body__informations_item--label">Inscrit depuis le :</span> {{ app.user.created|date("d/m/Y") }}
+                    </p>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+</turbo-frame>

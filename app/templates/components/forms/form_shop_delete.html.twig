@@ -1,0 +1,7 @@
+<form name="shop_delete" action="{{ path('admin_shop_delete', { shop_slug: shop.slug }) }}" method="POST">
+	<input type="hidden" name="_token" value="{{ csrf_token('delete_shop_' ~ shop.id) }}">
+    {% include "components/atoms/button/button.html.twig" with {
+        severity: "secondary",
+        text: "Supprimer" 
+    } %}
+</form>

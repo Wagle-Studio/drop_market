@@ -1,0 +1,7 @@
+<turbo-stream action="{{ stream_action }}" target="{{ stream_target }}">
+	<template>
+        {% include "components/organisms/card_admin_shop_edit/card_admin_shop_edit.html.twig" with {
+            card_stream_severity: stream_action
+        } %}
+	</template>
+</turbo-stream>

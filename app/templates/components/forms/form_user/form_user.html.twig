@@ -1,0 +1,35 @@
+{{ form_start(userForm) }}
+	{% embed "components/layouts/form_grid/form_grid.html.twig" with { error: userForm.vars.errors, class: "form_user" } %}
+		{% block error %}
+			{% if userForm.vars.errors|length > 0 %}
+				<div class="form_user__error">
+					{{ form_errors(userForm) }}
+				</div>
+			{% endif %}
+		{% endblock %}
+		{% block body %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_user__field--lastname" } %}
+				{% block form_field %}
+					{{ form_label(userForm.lastname) }}
+					{{ form_widget(userForm.lastname) }}
+					{{ form_help(userForm.lastname) }}
+					{{ form_errors(userForm.lastname) }}
+				{% endblock %}
+			{% endembed %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_user__field--firstname" } %}
+				{% block form_field %}
+					{{ form_label(userForm.firstname) }}
+					{{ form_widget(userForm.firstname) }}
+					{{ form_help(userForm.firstname) }}
+					{{ form_errors(userForm.firstname) }}
+				{% endblock %}
+			{% endembed %}
+		{% endblock %}
+		{% block buttons %}
+            {% include "components/atoms/button/button.html.twig" with {
+                text: "Enregistrer",
+                class: "form_user__button",
+            } %}
+		{% endblock %}
+	{% endembed %}
+{{ form_end(userForm) }}

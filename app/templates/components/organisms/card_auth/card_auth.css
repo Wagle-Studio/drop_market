@@ -1,0 +1,54 @@
+.card_auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  box-shadow: var(--card_box_shadow);
+}
+
+.card_auth__header {
+  display: none;
+}
+
+.card_auth__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+  width: 100%;
+  padding: var(--space_4);
+  border-radius: 0 3px 3px 0;
+  box-sizing: border-box;
+  background-color: var(--white_pure);
+}
+
+.card_auth__body__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_2);
+}
+
+.card_auth__body__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_1);
+}
+
+@media screen and (min-width: 678px) {
+  .card_auth__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space_4);
+    width: 100%;
+    padding: var(--space_4);
+    background-color: var(--gray);
+    border-radius: 3px 0 0 3px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .card_auth {
+    width: 943px;
+  }
+}

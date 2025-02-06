@@ -1,0 +1,10 @@
+{% embed "components/layouts/table_row/table_row.html.twig" %}
+	{% block table_row %}
+		<div class="table_order__row--identity">
+			{% include "components/atoms/user_avatar/user_avatar.html.twig" with {
+				user_avatar: order.user.avatar
+			} %}
+			<p>{{ order.user.firstname }} {{ order.user.lastname }}</p>
+		</div>
+	{% endblock %}
+{% endembed %}

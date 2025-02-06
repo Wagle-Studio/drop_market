@@ -1,0 +1,23 @@
+.tag {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  height: max-content;
+  padding: 0.2rem var(--space_0);
+  margin: 0;
+  border-radius: 3px;
+  border: unset;
+  box-sizing: border-box;
+}
+
+.tag--primary {
+  background-color: var(--tag);
+}
+
+.tag--primary > p {
+  color: var(--white);
+}
+
+.tag__title {
+  font-size: 1.4rem;
+}

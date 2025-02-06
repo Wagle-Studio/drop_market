@@ -1,0 +1,13 @@
+<div {% if class|default("") is not empty %} class="{{ class }}"{% endif %}>
+	{% if error is defined and error|length > 0 %}
+		<div class="form_grid__error">
+			{% block error %}{% endblock %}
+		</div>
+	{% endif %}
+	<div class="form_grid__body">
+        {% block body %}{% endblock %}
+    </div>
+	<div class="form_grid__buttons">
+		{% block buttons %}{% endblock %}
+	</div>
+</div>

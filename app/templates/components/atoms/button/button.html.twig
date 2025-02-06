@@ -1,0 +1,14 @@
+<button 
+	type="submit" 
+	class="button button--{{ severity|default("primary") }} {{ class|default("") }}"
+	{% if disabled is defined and disabled %}disabled{% endif %}
+	{% if name is defined %}name={{ name }}{% endif %}
+	{% if value is defined %}value={{ value }}{% endif %}
+>
+	{% if text is defined %}
+        {{ text }}
+	{% endif %}
+	{% if icon_right is defined %}
+        {{ icon_right|raw }}
+	{% endif %}
+</button>

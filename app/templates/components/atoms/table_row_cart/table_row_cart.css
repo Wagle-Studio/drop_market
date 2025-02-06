@@ -1,0 +1,21 @@
+.table_cart__row--title {
+  grid-column: 1/12;
+  grid-row: 1/2;
+  margin: auto 0;
+}
+
+.table_cart__row--price {
+  grid-column: 1/12;
+  grid-row: 2/3;
+  margin: auto 0 auto auto;
+}
+
+@media screen and (min-width: 678px) {
+  .table_cart__row--title {
+    grid-column: 1/6;
+  }
+  .table_cart__row--price {
+    grid-row: 1/2;
+    grid-column: 9/12;
+  }
+}

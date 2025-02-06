@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	La page demandée n'existe pas
+{% endblock %}
+
+{% block body %}
+	<div class="app_exception">
+		<h1>La page demandée n'existe pas ...</h1>
+		{% include "components/atoms/button_link/button_link.html.twig" with {
+			href: path("app_homepage"),
+			text: "Page d'accueil" 
+		} %}
+	</div>
+{% endblock %}

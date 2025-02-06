@@ -1,0 +1,10 @@
+<div 
+    class="wallet"
+	{% if wallet_id is defined %}id={{ wallet_id }}{% endif %}
+	{% if wallet_stream|default(false) and data_topic is defined %}data-topic={{ data_topic }}{% endif %}
+>
+    {% block header %}{% endblock %}
+    <div class="wallet__body">
+        {% block body %}{% endblock %}
+    </div>
+</div>

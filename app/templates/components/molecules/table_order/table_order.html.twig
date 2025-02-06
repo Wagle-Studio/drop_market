@@ -1,0 +1,7 @@
+<div id="stream_table_order-wave_{{ wave.ulid }}">
+	{% if wave and wave.orders %}
+		{% for order in wave.orders %}
+			{% include "components/atoms/table_row_order/table_row_order.html.twig" %}
+		{% endfor %}
+	{% endif %}
+</div>

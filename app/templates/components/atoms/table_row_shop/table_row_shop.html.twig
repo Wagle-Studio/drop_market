@@ -1,0 +1,28 @@
+{% embed "components/layouts/table_row/table_row.html.twig" with {
+    table_row_id: "stream_table_row_shop-shop_" ~ shop.ulid,
+    table_row_stream: true,
+    data_topic: "shop-" ~ shop.ulid,
+} %}
+    {% block table_row %}
+        <p class="table_shop__row--title">{{ shop.title }}</p>
+        <div class="table_shop__row--actions">
+            {# TODO: condition button with wave status #}
+            {% if is_granted('ROLE_OWNER') %}
+                {% include "components/atoms/button_link/button_link.html.twig" with {
+                    severity: "secondary",
+                    href: path("admin_shop_edit", { shop_slug: shop.slug }),
+                    class: "table_shop__row--actions-edit",
+                    icon_right: include("components/atoms/icons/icon_edit.html.twig", { 
+                        severity: "secondary",
+                        size: "small"
+                    })
+                } %}
+            {% endif %}
+            {% include "components/atoms/button_link/button_link.html.twig" with {
+                href: path("admin_shop_read", { shop_slug: shop.slug }),
+                class: "table_shop__row--actions-read",
+                icon_right: include("components/atoms/icons/icon_read.html.twig", { size: "small" })
+            } %}
+        </div>
+    {% endblock %}
+{% endembed %}

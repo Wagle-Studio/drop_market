@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détail d'un créneau{% endblock %}
+
+{% block body %}
+	{% embed "components/layouts/wallet/wallet.html.twig" with {
+		wallet_stream: true,
+		data_topic: "shop-" ~ shop.ulid,
+	} %}
+		{% block header %}
+			{% include "components/organisms/wallet_header_admin/wallet_header_admin.html.twig" %}
+		{% endblock %}
+		{% block body %}
+			{% include "components/organisms/card_admin_shop_wave_read/card_admin_shop_wave_read.html.twig" %}
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

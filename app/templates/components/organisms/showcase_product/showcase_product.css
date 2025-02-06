@@ -1,0 +1,6 @@
+.showcase_products {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+  width: 100%;
+}

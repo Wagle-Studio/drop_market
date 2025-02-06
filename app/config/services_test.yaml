@@ -1,0 +1,31 @@
+parameters:
+    router.request_context.host: '127.0.0.1'
+    router.request_context.scheme: 'http'
+    router.request_context.base_url: ''
+    router.request_context.http_port: 9080
+    router.request_context.https_port: 9443
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # Common configuration for Stream strategies.
+    App\Service\Stream\Strategy\:
+        resource: '../src/Service/Stream/Strategy/'
+        tags: ['app.stream_strategy']
+        arguments:
+            $hubInterface: '@mercure.hub.default'
+            $streamInterface: '@App\Service\Stream\Contract\StreamInterface'
+
+    # Configuration for the stream strategies factory.
+    App\Service\Stream\StreamStrategyFactory:
+        arguments:
+            $strategies: !tagged_iterator app.stream_strategy   

@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ product.title }}{% endblock %}
+
+{% block body %}
+	{% embed "components/layouts/card/card.html.twig" with {
+		card_title: product.title,
+	} %}{% endembed %}
+{% endblock %}

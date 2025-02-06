@@ -1,0 +1,23 @@
+.table_row {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  row-gap: var(--space_3);
+  padding: var(--space_2) var(--space_1);
+  box-sizing: border-box;
+}
+
+.table_row:nth-child(odd) {
+  background-color: var(--gray_primary);
+  border-bottom: 1px solid var(--gray);
+}
+
+.table_row:not(:first-child) {
+  border-bottom: 1px solid var(--gray);
+}
+
+@media screen and (min-width: 678px) {
+  .table_row {
+    grid-gap: unset;
+    padding: var(--space_1) var(--space_1);
+  }
+}

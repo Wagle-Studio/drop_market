@@ -1,0 +1,64 @@
+{{ form_start(waveForm) }}
+	{% embed "components/layouts/form_grid/form_grid.html.twig" with { error: waveForm.vars.errors, class: "form_wave" } %}
+		{% block error %}
+			{% if waveForm.vars.errors|length > 0 %}
+				<div class="form_wave__error">
+					{{ form_errors(waveForm) }}
+				</div>
+			{% endif %}
+		{% endblock %}
+		{% block body %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_wave__field--start" } %}
+				{% block form_field %}
+					{{ form_label(waveForm.start) }}
+					{{ form_widget(waveForm.start) }}
+					{{ form_help(waveForm.start) }}
+					{{ form_errors(waveForm.start) }}
+				{% endblock %}
+			{% endembed %}
+		{% endblock %}
+		{% block buttons %}
+			{% if variant == "create" %}
+				{% include "components/atoms/button/button.html.twig" with {
+					severity: "secondary",
+					text: "Enregistrer en brouillon",
+					class: "form_wave__button",
+					name: "action",
+					value: "draft"
+				} %}
+				{% include "components/atoms/button/button.html.twig" with { 
+					text: "Enregistrer et publier",
+					class: "form_wave__button",
+					name: "action",
+					value: "publish"
+				} %}
+			{% endif %}
+			{% if variant == "edit" %}
+				{% if wave.status.const == "DRAFT" %}
+					{% include "components/atoms/button/button.html.twig" with { 
+						severity: "secondary",
+						text: "Publier",
+						class: "form_wave__button",
+						name: "action",
+						value: "publish"
+					} %}
+				{% endif %}
+				{% if wave.status.const == "PUBLISHED" %}
+					{% include "components/atoms/button/button.html.twig" with { 
+						severity: "secondary",
+						text: "Dépublier",
+						class: "form_wave__button",
+						name: "action",
+						value: "unpublish"
+					} %}
+				{% endif %}
+				{% if wave.status.const == "DRAFT" or wave.status.const == "PUBLISHED" %}
+					{% include "components/atoms/button/button.html.twig" with {
+						text: "Enregistrer",
+						class: "form_wave__button",
+					} %}
+				{% endif %}
+			{% endif %}
+		{% endblock %}
+	{% endembed %}
+{{ form_end(waveForm) }}

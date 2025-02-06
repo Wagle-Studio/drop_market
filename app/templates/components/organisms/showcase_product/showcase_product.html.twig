@@ -1,0 +1,18 @@
+<section class="showcase_products">
+	{% if products %}
+		{% embed "components/layouts/grid_product/grid_product.html.twig" %}
+			{% block grid %}
+				{% for product in products %}
+					<a href="{{ path("product_read", { product_slug: product.slug }) }}">
+						{% include "components/atoms/product_card/product_card.html.twig" with {
+						product: product
+					} %}
+					</a>
+				{% endfor %}
+			{% endblock %}
+		{% endembed %}
+	{% endif %}
+	{% if products|length < 1 or products is not defined %}
+		<p>Aucun produit.</p>
+	{% endif %}
+</section>

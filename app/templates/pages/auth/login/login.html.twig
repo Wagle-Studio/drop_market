@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Connexion
+{% endblock %}
+
+{% block body %}
+	{% embed "components/organisms/card_auth/card_auth.html.twig" with { title: "Connexion" } %}
+		{% block body %}
+        	{% include "components/forms/form_login/form_login.html.twig" %}
+		{% endblock %}
+		{% block links %}
+			<a href={{ path("auth_register") }}>Créez votre compte</a>
+			<a href={{ path("auth_password_reset") }}>Mot de passe oublié ?</a>
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

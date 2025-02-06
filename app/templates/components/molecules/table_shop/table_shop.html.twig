@@ -1,0 +1,10 @@
+<div class="table_shop">
+	{% if shops %}
+		{% for shop in shops %}
+			{% include "components/atoms/table_row_shop/table_row_shop.html.twig" %}
+		{% endfor %}
+	{% endif %}
+	{% if not shops %}
+		<p>Aucune boutique.</p>
+	{% endif %}
+</div>

@@ -1,0 +1,19 @@
+.dashboard_nav {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space_3);
+  list-style: none;
+}
+
+.dashboard_nav__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space_1);
+  height: var(--space_7);
+  padding: var(--space_0) var(--space_1);
+  background-color: var(--gray_light);
+  border-radius: 3px;
+  text-align: center;
+}

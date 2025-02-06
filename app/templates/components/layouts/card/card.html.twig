@@ -1,0 +1,26 @@
+<section 
+    class="card {% if card_stream_severity is defined %}stream--{{ card_stream_severity }}{% endif %}"
+	{% if card_id is defined %}id={{ card_id }}{% endif %}
+	{% if card_stream|default(false) and data_topic is defined %}data-topic={{ data_topic }}{% endif %}
+>
+	{% if card_title is defined or block("subtitle")|trim is not empty or block("toolbar")|trim is not empty %}
+        <div class="card__header">
+            {% if card_title is defined or block("subtitle")|trim is not empty %}
+                <div class="card__header__information">
+                    {% if card_title is defined %}
+                        <h3>{{ card_title }}</h3>
+                    {% endif %}
+                    {% block subtitle %}{% endblock %}
+                </div>
+            {% endif %}
+            {% if block("toolbar")|trim is not empty %}
+                <div class="card__header__toolbar">
+                    {% block toolbar %}{% endblock %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+    <div class="card__body">
+        {% block body %}{% endblock %}
+    </div>
+</section>

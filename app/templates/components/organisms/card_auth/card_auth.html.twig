@@ -1,0 +1,15 @@
+<section class="card_auth">
+	<div class="card_auth__header"></div>
+	<div class="card_auth__body">
+        <div class="card_auth__body__header">
+            <h1>{{ title }}</h1>
+            {% if subtitle is defined %}
+                <p>{{ subtitle }}</p>
+            {% endif %}
+        </div>
+        {% block body %}{% endblock %}
+        <div class="card_auth__body__links">
+            {% block links %}{% endblock %}
+        </div>
+    </div>
+</section>

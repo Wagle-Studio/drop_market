@@ -1,0 +1,9 @@
+{% embed "components/layouts/card/card.html.twig" with {
+    card_title: "Créer un créneau",
+} %}
+    {% block body %}
+        {% include "components/forms/form_wave/form_wave.html.twig" with {
+            variant: "create"
+        } %}
+    {% endblock %}
+{% endembed %}

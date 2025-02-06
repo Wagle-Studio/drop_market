@@ -1,0 +1,20 @@
+{% if wallet_header_title is defined or block("subtitle")|trim is not empty or block("toolbar")|trim is not empty %}
+    <div
+        class="wallet__header {% if wallet_header_stream_severity is defined %}stream--{{ wallet_header_stream_severity }}{% endif %}"
+        {% if wallet_header_id is defined %}id={{ wallet_header_id }}{% endif %}
+    >
+        {% if wallet_header_title is defined or block("subtitle")|trim is not empty %}
+            <div class="wallet__header__information">
+                {% if wallet_header_title is defined %}
+                    <h2>{{ wallet_header_title }}</h2>
+                {% endif %}
+                {% block subtitle %}{% endblock %}
+            </div>
+        {% endif %}
+        {% if block("toolbar")|trim is not empty %}
+            <div class="wallet__header__toolbar">
+                {% block toolbar %}{% endblock %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

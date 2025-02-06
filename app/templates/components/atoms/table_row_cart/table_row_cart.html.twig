@@ -1,0 +1,6 @@
+{% embed "components/layouts/table_row/table_row.html.twig" %}
+	{% block table_row %}
+		<p class="table_cart__row--title">{{ product.title }}</p>
+		<p class="table_cart__row--price">{{ product.priceTtc }}€</p>
+	{% endblock %}
+{% endembed %}

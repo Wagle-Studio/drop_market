@@ -1,0 +1,23 @@
+{% embed "components/layouts/card/card.html.twig" with {
+    card_id: "stream_card_admin_shop_wave_edit-wave_" ~ wave.ulid,
+    card_stream: true,
+    data_topic: "wave-" ~ wave.ulid,
+    card_title: "Éditer le créneau du " ~ wave.start|date("d/m/Y - H:i"),
+} %}
+    {% block subtitle %}
+        {% include "components/atoms/tag/tag.html.twig" with {
+            text: wave.status.title 
+        } %}
+    {% endblock %}
+    {% block toolbar %}
+        {# TODO: condition delete button with wave status #}
+        {% if is_granted('ROLE_OWNER') %}
+            {% include "components/forms/form_shop_wave_delete.html.twig" %}
+        {% endif %}
+    {% endblock %}
+    {% block body %}
+        {% include "components/forms/form_wave/form_wave.html.twig" with {
+            variant: "edit"
+        } %}
+    {% endblock %}
+{% endembed %}

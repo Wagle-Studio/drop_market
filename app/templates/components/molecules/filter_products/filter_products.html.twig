@@ -1,0 +1,7 @@
+<form action="#" method="get" class="filter_products_form">
+	<div class="filter_products_form__field">
+		<label for="title" class="filter_products_form__field__label">Titre</label>
+		<input type="text" id="title" name="title" value="{{ app.request.query.get('title', '') }}" placeholder="Nom du produit">
+	</div>
+	{% include "components/atoms/button/button.html.twig" with { text: "Rechercher" } %}
+</form>

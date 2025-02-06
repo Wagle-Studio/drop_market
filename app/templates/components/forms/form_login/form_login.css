@@ -1,0 +1,30 @@
+.form_login > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+  width: 100%;
+}
+
+.form_login__field--email {
+  grid-column: 1/12;
+  grid-row: 1/2;
+}
+
+.form_login__field--password {
+  grid-column: 1/12;
+  grid-row: 2/3;
+}
+
+.form_login__field--csrf_token {
+  display: none;
+}
+
+.form_login__field--remember_me {
+  grid-column: 1/12;
+  grid-row: 3/4;
+}
+
+.form_login__button {
+  width: 100%;
+  justify-content: center;
+}

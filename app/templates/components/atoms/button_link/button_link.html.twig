@@ -1,0 +1,8 @@
+<a class="button_link button_link--{{ severity|default("primary") }} {{ class|default("") }}" href={{ href }}>
+	{% if text is defined %}
+        {{ text }}
+	{% endif %}
+	{% if icon_right is defined %}
+        {{ icon_right|raw }}
+	{% endif %}
+</a>

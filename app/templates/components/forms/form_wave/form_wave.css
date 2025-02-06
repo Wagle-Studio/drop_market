@@ -1,0 +1,40 @@
+.form_wave {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+}
+
+.form_wave__start {
+  text-align: center;
+}
+
+.form_wave__error > ul > li {
+  text-align: center;
+}
+
+.form_wave__field--start {
+  grid-column: 1/12;
+  grid-row: 1/2;
+}
+
+.form_wave__button {
+  width: 100%;
+  justify-content: center;
+}
+
+@media screen and (min-width: 678px) {
+  .form_wave__field--start {
+    grid-column: 1/6;
+  }
+  
+  .form_wave__button {
+    width: max-content;
+    justify-content: unset;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .form_wave__field--start {
+    grid-column: 1/4;
+  }
+}

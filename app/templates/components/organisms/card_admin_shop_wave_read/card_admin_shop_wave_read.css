@@ -1,0 +1,5 @@
+.admin_shop_wave_read__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space_2);
+}

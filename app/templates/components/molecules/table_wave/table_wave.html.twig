@@ -1,0 +1,10 @@
+<div id="stream_table_wave-shop_{{ shop.ulid }}">
+	{% if shop and shop.waves %}
+		{% for wave in shop.waves %}
+			{% include "components/atoms/table_row_wave/table_row_wave.html.twig" %}
+		{% endfor %}
+	{% endif %}
+	{% if shop.waves|length == 0 %}
+		<p>Aucun créneau.</p>
+	{% endif %}
+</div>

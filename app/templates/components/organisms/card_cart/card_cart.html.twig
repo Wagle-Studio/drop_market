@@ -1,0 +1,29 @@
+{% embed "components/layouts/card/card.html.twig" %}
+	{% block body %}
+		<div class="cart">
+			<div class="cart__resume">
+				<h3>Votre panier</h3>
+				{% include "components/molecules/table_cart/table_cart.html.twig" %}
+			</div>
+			<div class="cart__order">
+				<h3>Choissisez votre date de livraison</h3>
+				{% if app.user %}
+					{% include "components/forms/form_order/form_order.html.twig" %}
+				{% else %}
+					<p>Connectez-vous pour finaliser votre commande</p>
+					<div class="cart__order__auth_buttons">
+						{% include "components/atoms/button_link/button_link.html.twig" with { 
+                            href: path("auth_login"), 
+                            text: "Connexion" 
+                        } %}
+						{% include "components/atoms/button_link/button_link.html.twig" with { 
+                            severity: "secondary",
+                            href: path("auth_register"), 
+                            text: "Inscription" 
+                        } %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	{% endblock %}
+{% endembed %}

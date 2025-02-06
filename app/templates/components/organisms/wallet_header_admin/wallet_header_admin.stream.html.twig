@@ -1,0 +1,7 @@
+<turbo-stream action="{{ stream_action }}" target="{{ stream_target }}">
+	<template>
+		{% include "components/organisms/wallet_header_admin/wallet_header_admin.html.twig" with {
+			wallet_header_stream_severity: stream_action
+		} %}
+	</template>
+</turbo-stream>

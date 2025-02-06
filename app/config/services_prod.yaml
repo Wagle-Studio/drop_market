@@ -1,0 +1,30 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    # Configuration for sensitive exception transformer hook.
+    App\EventListener\ProductionSensitiveExceptionTransformer:
+        tags: [kernel.event_listener]
+
+    # Common configuration for Stream strategies.
+    App\Service\Stream\Strategy\:
+        resource: '../src/Service/Stream/Strategy/'
+        tags: ['app.stream_strategy']
+        arguments:
+            $hubInterface: '@mercure.hub.default'
+            $streamInterface: '@App\Service\Stream\Contract\StreamInterface'
+
+    # Configuration for the stream strategies factory.
+    App\Service\Stream\StreamStrategyFactory:
+        arguments:
+            $strategies: !tagged_iterator app.stream_strategy

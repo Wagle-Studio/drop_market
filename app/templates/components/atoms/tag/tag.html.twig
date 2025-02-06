@@ -1,0 +1,8 @@
+<div class="tag tag--{{ severity|default("primary") }} {{ class|default("") }}">
+	{% if text is defined %}
+        <p class="tag__title">{{ text }}</p>
+	{% endif %}
+	{% if icon_right is defined %}
+        {{ icon_right|raw }}
+	{% endif %}
+</div>

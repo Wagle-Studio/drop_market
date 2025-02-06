@@ -1,0 +1,28 @@
+/* Symfony form error list */
+.form_grid__error ul {
+  list-style: none;
+  padding: 0;
+}
+
+.form_grid__body {
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  row-gap: var(--space_3);
+}
+
+.form_grid__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_1)
+}
+
+@media screen and (min-width: 678px) {
+  .form_grid__body {
+    column-gap: var(--space_3);
+  }
+
+  .form_grid__buttons {
+    flex-direction: row;
+    gap: var(--space_1)
+  }
+}

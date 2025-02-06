@@ -1,0 +1,15 @@
+.flash {
+  list-style: none;
+}
+
+.flash__body {
+  padding: var(--space_0) var(--space_2);
+  border-radius: var(--card_border_radius);
+  background-color: var(--white_pure);
+  box-shadow: var(--card_box_shadow);
+  box-sizing: border-box;
+}
+
+.flash__body__message {
+  font-size: 1.4rem;
+}

@@ -1,0 +1,35 @@
+{{ form_start(shopForm) }}
+	{% embed "components/layouts/form_grid/form_grid.html.twig" with { error: shopForm.vars.errors, class: "form_shop" } %}
+		{% block error %}
+			{% if shopForm.vars.errors|length > 0 %}
+				<div class="form_shop__error">
+					{{ form_errors(shopForm) }}
+				</div>
+			{% endif %}
+		{% endblock %}
+		{% block body %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_shop__field--title" } %}
+				{% block form_field %}
+					{{ form_label(shopForm.title) }}
+					{{ form_widget(shopForm.title) }}
+					{{ form_help(shopForm.title) }}
+					{{ form_errors(shopForm.title) }}
+				{% endblock %}
+			{% endembed %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_shop__field--postal-code" } %}
+				{% block form_field %}
+					{{ form_label(shopForm.postalCode) }}
+					{{ form_widget(shopForm.postalCode) }}
+					{{ form_help(shopForm.postalCode) }}
+					{{ form_errors(shopForm.postalCode) }}
+				{% endblock %}
+			{% endembed %}
+		{% endblock %}
+		{% block buttons %}
+			{% include "components/atoms/button/button.html.twig" with { 
+				text: "Enregistrer",
+				class: "form_shop__button" 
+			} %}
+		{% endblock %}
+	{% endembed %}
+{{ form_end(shopForm) }}

@@ -1,0 +1,7 @@
+{% embed "components/layouts/card/card.html.twig" with {
+    card_title: "Boutiques"
+} %}
+    {% block body %}
+        {% include "components/molecules/table_shop/table_shop.html.twig" %}
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,15 @@
+{% embed "components/layouts/card/card.html.twig" %}
+    {% block body %}
+        <ul class="dashboard_nav">
+            <li>
+                <a class="dashboard_nav__item" href="{{ path("admin_shop_wave_collection", { shop_slug: shop.slug }) }}">
+                    {% include "components/atoms/icons/icon_drop.html.twig" with { 
+                        severity: "secondary",
+                        size: "large"
+                    } %}
+                    <span class="heading_3">créneaux</span>
+                </a>
+            </li>
+        </ul>
+    {% endblock %}
+{% endembed %}

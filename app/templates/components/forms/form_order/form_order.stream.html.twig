@@ -1,0 +1,7 @@
+<turbo-stream action="{{ stream_action }}" target="{{ stream_target }}">
+	<template>
+        {% include "components/forms/form_order/form_order.html.twig" with {
+            form_order_stream_severity: stream_action
+        } %}
+	</template>
+</turbo-stream>

@@ -1,0 +1,42 @@
+<header class="header">
+	<a class="heading_3" href={{ path("app_homepage") }}>Wave market</a>
+	<div class="header__menu_mobile">
+		{% if app.user %}
+			{% include "components/atoms/user_avatar/user_avatar.html.twig" with {
+				user_avatar: app.user.avatar
+			} %}
+		{% else %}
+			{% include "components/atoms/button/button.html.twig" with { 
+				severity: "secondary",
+				icon_right: include("components/atoms/icons/icon_menu.html.twig",{
+					severity: "secondary",
+					size: "small"
+				})
+			} %}
+		{% endif %}
+	</div>
+	<nav class="header__nav">
+		<ul class="header__nav__list">
+			{% if not app.user %}
+				<li>
+					{% include "components/atoms/button_link/button_link.html.twig" with { 
+						severity: "secondary",
+						href: path("auth_register"), 
+						text: "Inscription"
+					} %}
+				</li>
+				<li>
+					{% include "components/atoms/button_link/button_link.html.twig" with { 
+						href: path("auth_login"), 
+						text: "Connexion" 
+					} %}
+				</li>
+			{% endif %}
+			{% if app.user %}
+				<li class="header__nav__list__item--header-profile">
+					{% include "components/molecules/header_profile/header_profile.html.twig" %}
+				</li>
+			{% endif %}
+		</ul>
+	</nav>
+</header>

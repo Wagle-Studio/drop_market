@@ -1,0 +1,7 @@
+<turbo-stream action="{{ stream_action }}" target="{{ stream_target }}">
+	<template>
+		{% include "components/atoms/table_row_order/table_row_order.html.twig" with {
+			table_row_stream_severity: stream_action
+		} %}
+	</template>
+</turbo-stream>

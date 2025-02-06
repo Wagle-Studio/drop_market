@@ -1,0 +1,44 @@
+{% embed "components/layouts/table_row/table_row.html.twig" with {
+    table_row_id: "stream_table_row_wave-wave_" ~ wave.ulid,
+    table_row_stream: true,
+    data_topic: "wave-" ~ wave.ulid,
+} %}
+    {% block table_row %}
+        <p class="table_wave__row--start">{{ wave.start|date("d/m/Y - H:i") }}</p>
+        {% include "components/atoms/tag/tag.html.twig" with {
+            class: "table_wave__row--status",
+            text: wave.status.title 
+        } %}
+        <div class="table_wave__row--orders">
+            <div class="table_wave__row--orders--avatars">
+                {% for order in wave.orders|slice(0, 3) %}
+                    {% include "components/atoms/user_avatar/user_avatar.html.twig" with {
+                        user_avatar: order.user.avatar
+                    } %}
+                {% endfor %}
+            </div>
+            {% if wave.orders|length() > 0 %}
+                <p class="table_wave__row--orders--label">{{ wave.orders|length() }} commande{{ wave.orders|length() > 1 ? "s" : "" }}</p>
+            {% endif %}
+        </div>
+        <div class="table_wave__row--actions">
+            {# TODO: condition button with wave status #}
+            {% if is_granted('ROLE_OWNER') %}
+                {% include "components/atoms/button_link/button_link.html.twig" with {
+                    severity: "secondary",
+                    href: path("admin_shop_wave_edit", { shop_slug: wave.shop.slug, wave_ulid: wave.ulid }),
+                    class: "table_wave__row--actions-edit",
+                    icon_right: include("components/atoms/icons/icon_edit.html.twig", { 
+                        severity: "secondary",
+                        size: "small"
+                    })
+                } %}
+            {% endif %}
+            {% include "components/atoms/button_link/button_link.html.twig" with {
+                href: path("admin_shop_wave_read", { shop_slug: wave.shop.slug, wave_ulid: wave.ulid }),
+                class: "table_wave__row--actions-read",
+                icon_right: include("components/atoms/icons/icon_read.html.twig", { size: "small" })
+            } %}
+        </div>
+    {% endblock %}
+{% endembed %}

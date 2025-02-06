@@ -1,0 +1,31 @@
+.profile_read__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_3);
+}
+
+.profile_read__body__informations {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_1);
+}
+
+.profile_read_body__informations_item {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile_read_body__informations_item--label {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 678px) {
+  .profile_read__body {
+    flex-direction: row;
+  }
+
+  .profile_read_body__informations_item {
+    flex-direction: row;
+    gap: var(--space_0);
+  }
+}

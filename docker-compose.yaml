@@ -1,0 +1,72 @@
+version: "3.8"
+
+services:
+  mysql:
+    container_name: "database"
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_PASSWORD: ${DATABASE_PSWD}
+      MYSQL_USER: ${DATABASE_USER}
+
+  phpmyadmin:
+    container_name: "phpmyadmin"
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+      PMA_USER: ${DATABASE_USER}
+      PMA_PASSWORD: ${DATABASE_PSWD}
+      UPLOAD_LIMIT: 20M
+    depends_on:
+      - mysql
+
+  php:
+    container_name: "symfony"
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - mysql
+
+  caddy:
+    container_name: "caddy"
+    image: caddy:latest
+    restart: always
+    ports:
+      - 8080:80
+      - 443:443
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./app/public:/var/www/html/public
+    depends_on:
+      - php
+
+  mercure:
+    container_name: "mercure"
+    image: dunglas/mercure
+    restart: always
+    ports:
+      - 8082:80
+    volumes:
+      - ./caddy/Caddyfile.mercure:/etc/caddy/Caddyfile
+    environment:
+      MERCURE_PUBLISHER_JWT: ${MERCURE_PUBLISHER_JWT}
+      MERCURE_SUBSCRIBER_JWT: ${MERCURE_SUBSCRIBER_JWT}
+      MERCURE_CORS_ALLOWED_ORIGINS: ${MERCURE_CORS_ALLOWED_ORIGINS}
+
+  maildev:
+    container_name: "maildev"
+    image: maildev/maildev
+    restart: always
+    ports:
+      - 1080:1080
+      - 1025:1025

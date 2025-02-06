@@ -1,0 +1,33 @@
+.wallet {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+  width: 100%;
+}
+
+.wallet__header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space_4);
+}
+
+.wallet__header__information {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_1);
+}
+
+.wallet__header__toolbar {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space_1);
+}
+
+.wallet__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space_4);
+}

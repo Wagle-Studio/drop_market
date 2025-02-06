@@ -1,0 +1,26 @@
+{{ form_start(orderForm, { attr: { 
+    id: "stream_form_order-shop_" ~ shop.ulid,
+    class: form_order_stream_severity is defined ? "form stream--" ~ form_order_stream_severity : "form"
+} }) }}
+    {% embed "components/layouts/form_grid/form_grid.html.twig" with { class: "form_order" }  %}
+        {% block body %}
+            {% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_order__field--wave_" } %}
+                {% block form_field %}
+                    {{ form_label(orderForm.wave) }}
+                    {{ form_widget(orderForm.wave) }}
+                    {{ form_help(orderForm.wave) }}
+                    {{ form_errors(orderForm.wave) }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block buttons %}
+            {% include "components/atoms/button/button.html.twig" with { 
+                text: "Sélectionnez une date",
+                class: "form_order__button",
+                disabled: true
+            } %}
+        {% endblock %}
+    {% endembed %}
+{{ form_end(orderForm) }}
+
+    

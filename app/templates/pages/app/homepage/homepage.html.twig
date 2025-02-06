@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Wave Market{% endblock %}
+
+{% block body %}
+	{% embed "components/layouts/wallet/wallet.html.twig" %}
+		{% block header %}
+			{% embed "components/layouts/wallet_header/wallet_header.html.twig" with {
+				wallet_header_title: shop.title
+			} %}
+				{% block toolbar %}
+					{% include "components/atoms/button_link/button_link.html.twig" with {
+						href: path("shop_cart", { shop_slug: shop.slug }),
+						text: "Votre panier" 
+					} %}
+				{% endblock %}
+			{% endembed %}
+		{% endblock %}
+		{% block body %}
+			{% include "components/organisms/showcase_product/showcase_product.html.twig" %}
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

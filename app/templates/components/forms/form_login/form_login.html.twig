@@ -1,0 +1,42 @@
+<form class="form_login" name="form_login" method="post">
+	{% embed "components/layouts/form_grid/form_grid.html.twig" with { error: error } %}
+		{% block error %}
+			{% if error %}
+				<p>{{ error.messageKey|trans(error.messageData, "security") }}</p>
+			{% endif %}
+		{% endblock %}
+		{% block body %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_login__field--email" } %}
+				{% block form_field %}
+					<label for="inputEmail">Adresse email</label>
+					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required placeholder="exemple@gmail.com">
+				{% endblock %}
+			{% endembed %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_login__field--password" }  %}
+				{% block form_field %}
+					<label for="inputPassword">Mot de passe</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="**********">
+				{% endblock %}
+			{% endembed %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_login__field--csrf_token" }  %}
+				{% block form_field %}
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token("authenticate") }}">
+				{% endblock %}
+			{% endembed %}
+			{% embed "components/layouts/form_field/form_field.html.twig" with { class: "form_login__field--remember_me" }  %}
+				{% block form_field %}
+					<label>
+						<input type="checkbox" name="_remember_me">
+						Rester connecter
+					</label>
+				{% endblock %}
+			{% endembed %}
+		{% endblock %}
+		{% block buttons %}
+			{% include "components/atoms/button/button.html.twig" with { 
+				text: "Connexion",
+				class: "form_login__button" 
+			} %}
+		{% endblock %}
+	{% endembed %}
+</form>

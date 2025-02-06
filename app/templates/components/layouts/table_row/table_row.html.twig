@@ -1,0 +1,7 @@
+<div 
+	class="table_row {% if table_row_stream_severity is defined %}stream--{{ table_row_stream_severity }}{% endif %}{{ class|default("") }}"
+	{% if table_row_id is defined %}id={{ table_row_id }}{% endif %}
+	{% if table_row_stream|default(false) and data_topic is defined %}data-topic={{ data_topic }}{% endif %}
+>
+	{% block table_row %}{% endblock %}
+</div>

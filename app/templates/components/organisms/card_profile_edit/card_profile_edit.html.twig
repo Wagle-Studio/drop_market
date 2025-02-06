@@ -1,0 +1,18 @@
+<turbo-frame id="stream_card_profile">
+    {% embed "components/layouts/card/card.html.twig" with {
+        card_id: "stream_card_profile_edit-user_" ~ app.user.ulid,
+        card_stream: true,
+        data_topic: "user-" ~ app.user.ulid,
+        card_title: "Éditez vos informations personnelles",
+    } %}
+        {% block toolbar %}
+            {% include "components/atoms/button_link/button_link.html.twig" with {
+                href: path("profile_read"),
+                text: "Retour" 
+            } %}
+        {% endblock %}
+        {% block body %}
+            {% include "components/forms/form_user/form_user.html.twig" %}
+        {% endblock %}
+    {% endembed %}
+</turbo-frame>

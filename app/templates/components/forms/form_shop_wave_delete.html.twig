@@ -1,0 +1,6 @@
+<form name="wave_delete" action="{{ path('admin_shop_wave_delete', { shop_slug: wave.shop.slug, wave_ulid: wave.ulid }) }}" method="POST">
+	<input type="hidden" name="_token" value="{{ csrf_token('delete_shop_wave' ~ wave.ulid) }}">
+    {% include "components/atoms/button/button.html.twig" with {
+        text: "Supprimer" 
+    } %}
+</form>

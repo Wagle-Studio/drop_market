@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+	{% embed "components/layouts/wallet/wallet.html.twig" with {
+		wallet_stream: true,
+		data_topic: "shop-" ~ shop.ulid,
+	} %}
+		{% block header %}
+			{% embed "components/layouts/wallet_header/wallet_header.html.twig" with {
+				wallet_header_title: shop.title
+			} %}
+				{% block toolbar %}
+					{% include "components/atoms/button_link/button_link.html.twig" with {
+						href: path("app_homepage"),
+						text: "Retour" 
+					} %}
+				{% endblock %}
+			{% endembed %}
+		{% endblock %}
+		{% block body %}
+			{% include "components/organisms/card_cart/card_cart.html.twig" %}
+		{% endblock %}
+	{% endembed %}
+{% endblock %}

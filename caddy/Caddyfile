@@ -1,0 +1,23 @@
+:80
+
+root * /var/www/html/public
+
+file_server
+
+@php {
+	path *.php
+}
+
+reverse_proxy @php php:9000 {
+	transport fastcgi {
+		split .php
+	}
+}
+
+@notFound {
+	file {
+		try_files {path} /index.php
+	}
+}
+
+rewrite @notFound /index.php

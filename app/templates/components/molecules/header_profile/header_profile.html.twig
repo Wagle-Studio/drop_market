@@ -1,0 +1,10 @@
+<div 
+    class="header_profile {% if header_profile_stream_severity is defined %}stream--{{ header_profile_stream_severity }}{% endif %}"
+    id="stream_header_profile-user_{{ app.user.ulid }}"
+    data-topic="user-{{ app.user.ulid }}"
+>
+    <p>{{ app.user.firstname }} {{ app.user.lastname }}</p>
+    {% include "components/atoms/user_avatar/user_avatar.html.twig" with {
+        user_avatar: app.user.avatar
+    } %}
+</div>

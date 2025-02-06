@@ -1,0 +1,7 @@
+<turbo-stream action="{{ stream_action }}" target="{{ stream_target }}">
+	<template>
+		{% include "components/molecules/header_profile/header_profile.html.twig" with {
+			header_profile_stream_severity: stream_action
+		} %}
+	</template>
+</turbo-stream>
