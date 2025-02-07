@@ -2,6 +2,8 @@
 
 🐘 PHP 8.2 . 🎼 Symfony 7.1 . 🗃️ Mysql 8.0 . 🛒 Caddy (latest) . 📡 Dunglas\Mercure . 🔎 PhpMyAdmin . 📫 MailDev
 
+🔗 [Maquette Figma](https://www.figma.com/design/2j4ZCRVjNnafjvXxMsm99d/Drop-market?node-id=121-1200&t=BWIIutvpE2zmNJTZ-1)
+
 ## Présentation
 
 J'ai créé ce projet pour travailler mes compétences. Ce projet prend la forme d'un e-commerce des plus simples. L'objectif n'étant pas d'aboutir à un produit fini, chaque fonctionnalité implantée est complète, mais certaines fonctionnalités incontournables d'un e-commerce sont consciemment absentes.
