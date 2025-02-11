@@ -28,7 +28,7 @@ J'ai créé ce projet pour travailler mes compétences. Ce projet prend la forme
 
 **🤖 Automatisation** : Adepte de l'automatisation et de l'optimisation, j'ai créé différents scripts shell pour faciliter l'exécution des plans de tests et la gestion des bases de données.
 
-## Installer l'environnement
+## Installer l'environnement 
 
 ```bash
 docker-compose up --build --remove-orphans
